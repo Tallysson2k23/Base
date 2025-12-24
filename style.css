@@ -1,0 +1,70 @@
+:root {
+    --primary: #003366;
+    --accent: #007bff;
+    --bg-light: #f4f7f9;
+    --text-dark: #2c3e50;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+}
+
+.navbar { background-color: var(--primary); padding: 1rem 0; }
+
+.hero-section {
+    background: linear-gradient(rgba(0, 51, 102, 0.8), rgba(0, 51, 102, 0.8)), 
+                url('https://i.postimg.cc/Hx6hv5dw/image.png') center/cover;
+    color: white;
+    padding: 80px 0;
+    margin-bottom: -50px; /* Sobreposição elegante */
+}
+
+.content-wrapper {
+    background: white;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    position: relative;
+    z-index: 10;
+}
+
+.section-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+}
+
+/* Estilo dos Links (Cards) */
+.link-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #fdfdfd;
+    border: 1px solid #edf2f7;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 15px;
+    transition: all 0.3s ease;
+}
+
+.link-item:hover {
+    transform: translateX(10px);
+    border-color: var(--accent);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.link-info { display: flex; align-items: center; gap: 20px; }
+.link-icon { font-size: 1.5rem; color: var(--accent); }
+
+.btn-access {
+    background-color: var(--accent);
+    color: white;
+    border-radius: 8px;
+    padding: 8px 25px;
+    text-decoration: none;
+    font-weight: 600;
+}
