@@ -22,11 +22,31 @@ function gerarTemplateCard(item) {
 async function iniciarPagina() {
     try {
         const listaDeLinks = await buscarLinksDoBanco();
-        container.innerHTML = listaDeLinks.length > 0 
-            ? listaDeLinks.map(item => gerarTemplateCard(item)).join('')
-            : '<p class="text-center py-5">Nenhum recurso cadastrado ainda.</p>';
+
+        // 🔒 NÃO APAGA O QUE JÁ EXISTE
+        if (listaDeLinks.length > 0) {
+            container.insertAdjacentHTML(
+                'beforeend',
+                listaDeLinks.map(item => gerarTemplateCard(item)).join('')
+            );
+        }
+
+        // Se não houver links no banco, mantém o link fixo
+        if (listaDeLinks.length === 0 && container.children.length === 0) {
+            container.innerHTML = `
+                <p class="text-center py-5 text-muted">
+                    Nenhum recurso cadastrado ainda.
+                </p>
+            `;
+        }
+
     } catch (erro) {
-        container.innerHTML = '<div class="alert alert-danger">Erro ao carregar base de dados.</div>';
+        console.error(erro);
+        container.innerHTML = `
+            <div class="alert alert-danger">
+                Erro ao carregar base de dados.
+            </div>
+        `;
     }
 }
 
