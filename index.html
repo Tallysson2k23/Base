@@ -1,57 +1,33 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portal RPC - info</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portal RPC - info</title>
 
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-<div id="lock-screen" style="
-    position: fixed;
-    inset: 0;
-    background: linear-gradient(135deg, #0d6efd, #000);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 9999;
-">
 
-    <div class="card p-4 shadow-lg" style="width: 320px;">
+<!-- Tela de bloqueio -->
+<div id="lock-screen" style="position:fixed; inset:0; background:linear-gradient(135deg,#0d6efd,#000); display:flex; align-items:center; justify-content:center; z-index:9999;">
+    <div class="card p-4 shadow-lg" style="width:320px;">
         <h4 class="text-center mb-3">🔐 Portal RPC</h4>
-        <p class="text-center small text-muted">
-            Digite o código de autorização para acessar
-        </p>
+        <p class="text-center small text-muted">Digite o código de autorização</p>
 
-        <input 
-            type="password" 
-            id="access-code" 
-            class="form-control mb-3 text-center"
-            placeholder="Código de acesso">
-
-        <button class="btn btn-primary w-100" onclick="verificarCodigo()">
-            Entrar
-        </button>
-
-        <p id="erro-codigo" class="text-danger text-center mt-2 d-none">
-            Código inválido
-        </p>
+        <input type="password" id="access-code" class="form-control mb-3 text-center" placeholder="Código de acesso">
+        <button class="btn btn-primary w-100" onclick="verificarCodigo()">Entrar</button>
+        <p id="erro-codigo" class="text-danger text-center mt-2 d-none">Código inválido</p>
     </div>
 </div>
 
-
-
-
 <nav class="navbar navbar-dark shadow-sm">
     <div class="container">
-        <a class="navbar-brand" href="#">
-            <i class="fas fa-tools me-2"></i> Portal RPC
-        </a>
+        <a class="navbar-brand"><i class="fas fa-tools me-2"></i> Portal RPC</a>
         <span class="text-white-50 d-none d-md-inline">Suporte Operacional</span>
     </div>
 </nav>
@@ -64,215 +40,117 @@
 </section>
 
 <div class="container content-wrapper">
-    <div class="row">
+<div class="row">
 
-        <!-- COLUNA ESQUERDA -->
-        <div class="col-lg-8">
-            <div class="section-header">
-                <i class="fas fa-folder-open text-primary"></i>
-                <h3 class="mb-0">Acesso Rápido</h3>
-            </div>
-<button 
-    class="btn btn-primary w-100 mb-3"
-    id="btn-toggle-links">
-     Mostrar acessos rápidos
+<!-- COLUNA ESQUERDA -->
+<div class="col-lg-8">
+<div class="section-header">
+<i class="fas fa-folder-open text-primary"></i>
+<h3 class="mb-0">Acesso Rápido</h3>
+</div>
+
+<!-- Sempre visíveis -->
+<div class="mt-4">
+<a href="treinamentos.html" class="btn btn-success w-100 mb-3">📚 Treinamentos e Processos</a>
+
+<a href="https://formulario-rpc.netlify.app/vales" target="_blank" class="btn btn-outline-primary w-100 mb-3">
+💲 Formulário de Vales
+</a>
+
+<a href="https://setor-tecnico-x29y.vercel.app/" target="_blank" class="btn btn-outline-primary w-100 mb-3">
+🛠️ Acesso das ONTs
+</a>
+</div>
+
+<!-- Botão ver mais -->
+<button class="btn btn-light w-100 mb-3" id="btn-ver-mais">
+⬇ Ver mais acessos
 </button>
 
+<!-- Links ocultos -->
+<div id="links-extras" class="d-none">
 
+<a href="https://docs.google.com/forms/d/e/1FAIpQLSf00uVJw980X-RLEi-Ie_YUwe9QuHEqGlGrzWlQmggS0VnGDA/viewform" target="_blank" class="btn btn-outline-primary w-100 mb-3">
+🚘 Solicitação Veículos
+</a>
 
+<a href="https://rpc-carros.netlify.app/" target="_blank" class="btn btn-outline-primary w-100 mb-3">
+🚔 Nova Solicitação de Veículos (beta)
+</a>
 
-            <div id="container-links" class="mt-4 d-none">
+<a href="https://minhaconta.redecom.net.br/central_assinante_web/login" target="_blank" class="btn btn-outline-primary w-100 mb-3">
+📝 Central do Assinante Web
+</a>
 
+<a href="https://play.google.com/store/apps/details?id=br.net.redecom.minhaconta" target="_blank" class="btn btn-outline-primary w-100 mb-3">
+📱 App Rede.com Android
+</a>
 
-                <a href="https://formulario-rpc.netlify.app/vales"
-                   target="_blank"
-                   class="btn btn-outline-primary w-100 mb-3">
-                    💲 Formulário de Vales
-                </a>
-
-                <a href="https://setor-tecnico-x29y.vercel.app/"
-                   target="_blank"
-                   class="btn btn-outline-primary w-100 mb-3">
-                    🛠️ Acesso das ONTs
-                </a>
-
-                <a href="https://docs.google.com/forms/d/e/1FAIpQLSf00uVJw980X-RLEi-Ie_YUwe9QuHEqGlGrzWlQmggS0VnGDA/viewform"
-                   target="_blank"
-                   class="btn btn-outline-primary w-100 mb-3">
-                    🚘 Solicitação Veículos
-                </a>
-                                <a href="https://rpc-carros.netlify.app/"
-                   target="_blank"
-                   class="btn btn-outline-primary w-100 mb-3">
-                    🚔 Nova Solicitação de Veículos (beta)
-                </a>
-
-                                </a>
-                <a href="https://minhaconta.redecom.net.br/central_assinante_web/login"
-                   target="_blank"
-                   class="btn btn-outline-primary w-100 mb-3">
-                    📝 Central do Assinante_web
-                </a>
-                                <a href="https://play.google.com/store/apps/details?id=br.net.redecom.minhaconta"
-                   target="_blank"
-                   class="btn btn-outline-primary w-100 mb-3">
-                    📱 Aplicativo Rede.com Android
-                </a>
-                                                <a href="https://apps.apple.com/br/app/rede-com-cliente/id6478495214"
-                   target="_blank"
-                   class="btn btn-outline-primary w-100 mb-3">
-                    📲 Aplicativo Rede.com Iphone
-                </a>
-
-                
-
-
-            </div>
-        </div>
-
-<div class="ratio ratio-16x9 mb-4 shadow rounded">
-
-<div class="ratio ratio-16x9 mb-4 shadow rounded">
-    <iframe 
-        src="https://drive.google.com/file/d/1x8W9zi_1woOn4Z0IonsFPR96K4HQEdfr/preview"
-        allow="autoplay"
-        allowfullscreen>
-    </iframe>
-</div>
-
-
+<a href="https://apps.apple.com/br/app/rede-com-cliente/id6478495214" target="_blank" class="btn btn-outline-primary w-100 mb-3">
+📲 App Rede.com iPhone
+</a>
 
 </div>
-<div class="card mb-4 shadow-sm">
-    <div class="card-body">
-
-        <h5 class="fw-bold text-primary">
-            📡 Autenticação de ONT pelo Inmap Service
-        </h5>
-
-        <p class="small text-muted mb-3">
-            Este vídeo demonstra o procedimento correto para autenticar uma ONT
-            utilizando o sistema Inmap Service.
-        </p>
-
-        <h6 class="fw-bold">📝 Passo a passo</h6>
-
-        <ol class="small">
-            <li>Acesse o sistema <strong>Inmap Service</strong>.</li>
-            <li>Localize a O.S e coloque em execução</li>
-            <li>Va em <strong>integração ONU</strong></li>
-            <li>Pesquise na lupa <strong>Consultar Todas</strong>.</li>
-            <li>Veja qual equipamento pleo MAC/Serial e va em Autorizar</li>
-            <li>Configurações Gereais</li>
-            <li>Veja com atenção qual o perfil <strong>54 ONT, 65 BRIDGE</strong>.</li>
-            <li>Configurações ONU clientes e coloque os dados da interface </li>
-        </ol>
-
-        <div class="alert alert-info small mt-3 mb-0">
-            ⚠️ Apos autenticar <strong>continui com a finalização da O.S normalment</strong> 
-            
-        </div>
-
-    </div>
 </div>
-        <!-- COLUNA DIREITA -->
-        <div class="col-lg-4">
-            <div class="section-header">
-                <i class="fas fa-bullhorn text-primary"></i>
-                <h3 class="mb-0">Avisos</h3>
-            </div>
 
-            <div class="card mt-4 info-sidebar shadow-sm">
-                <div class="card-body">
+<!-- COLUNA DIREITA -->
+<div class="col-lg-4">
+<div class="section-header">
+<i class="fas fa-bullhorn text-primary"></i>
+<h3 class="mb-0">Avisos</h3>
+</div>
 
-                    <!-- AVISO DP -->
-                    <div class="alert alert-danger">
-                        <h6 class="fw-bold">
-                            ⚠️ Comunicado Importante – DP
-                        </h6>
+<div class="card mt-4 shadow-sm">
+<div class="card-body">
 
-                        <p class="small mb-2">
-                            O Departamento Pessoal passa a funcionar
-                            <strong>exclusivamente de forma online</strong>.
-                        </p>
+<div class="alert alert-danger">
+<h6 class="fw-bold">⚠️ Comunicado Importante – DP</h6>
+<p class="small">DP funciona apenas online.</p>
+<p class="small">Contato Rafael: <strong>(81) 99488-1121</strong></p>
 
-                        <p class="small mb-2">
-                            Demandas fora do escopo do documento oficial
-                            <strong>não serão atendidas</strong>.
-                        </p>
+<a href="https://drive.google.com/uc?export=download&id=1moqk0K_TtCxkNIAbK-ZmwG5v31tbQqRl" target="_blank" class="btn btn-sm btn-outline-danger w-100 mb-2">
+📄 Baixar documento
+</a>
 
-                        <p class="small mb-2">
-                            Novo contato do DP (Rafael):
-                            <strong>(81) 99488-1121</strong>
-                        </p>
+<a href="aviso-dp.html" class="btn btn-sm btn-danger w-100">
+🔎 Ler comunicado
+</a>
+</div>
 
-                        <a
-                          href="https://drive.google.com/uc?export=download&id=1moqk0K_TtCxkNIAbK-ZmwG5v31tbQqRl"
-                          target="_blank"
-                          class="btn btn-sm btn-outline-danger w-100 mb-2">
-                          📄 Baixar documento oficial
-                        </a>
+</div>
+</div>
+</div>
 
-                        <a
-                          href="aviso-dp.html"
-                          class="btn btn-sm btn-danger w-100">
-                          🔎 Ler comunicado completo
-                        </a>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-
-    </div>
+</div>
 </div>
 
 <footer class="text-center py-4 mt-5 border-top bg-white">
-    <p class="text-muted mb-0">
-        © 2026 Tallysson Luis - T.I Rede.com
-    </p>
+<p class="text-muted mb-0">© 2026 Tallysson Luis - T.I Rede.com</p>
 </footer>
 
-<script type="module" src="controller.js"></script>
-
 <script>
-    const botao = document.getElementById("btn-toggle-links");
-    const links = document.getElementById("container-links");
-
-    botao.addEventListener("click", () => {
-        links.classList.toggle("d-none");
-
-        if (links.classList.contains("d-none")) {
-            botao.innerHTML = " Mostrar acessos rápidos";
-        } else {
-            botao.innerHTML = " Ocultar acessos rápidos";
-        }
-    });
+document.getElementById("btn-ver-mais").addEventListener("click", function(){
+    const box = document.getElementById("links-extras");
+    box.classList.toggle("d-none");
+    this.innerHTML = box.classList.contains("d-none") ? "⬇ Ver mais acessos" : "⬆ Ver menos acessos";
+});
 </script>
 
 <script>
-    const CODIGO_CORRETO = "139250";
-
-    function verificarCodigo() {
-        const digitado = document.getElementById("access-code").value;
-        const erro = document.getElementById("erro-codigo");
-
-        if (digitado === CODIGO_CORRETO) {
-            localStorage.setItem("portal_rpc_autorizado", "true");
-            document.getElementById("lock-screen").style.display = "none";
-        } else {
-            erro.classList.remove("d-none");
-        }
+const CODIGO_CORRETO = "139250";
+function verificarCodigo() {
+    const c = document.getElementById("access-code").value;
+    if (c === CODIGO_CORRETO) {
+        localStorage.setItem("portal_rpc_autorizado","true");
+        document.getElementById("lock-screen").style.display="none";
+    } else {
+        document.getElementById("erro-codigo").classList.remove("d-none");
     }
-
-    // Se já estiver autorizado, não pede senha de novo
-    if (localStorage.getItem("portal_rpc_autorizado") === "true") {
-        document.addEventListener("DOMContentLoaded", () => {
-            document.getElementById("lock-screen").style.display = "none";
-        });
-    }
+}
+if(localStorage.getItem("portal_rpc_autorizado")==="true"){
+    document.getElementById("lock-screen").style.display="none";
+}
 </script>
-
 
 </body>
 </html>

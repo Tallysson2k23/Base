@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>Inmap Service | Portal RPC</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+<body>
+
+<nav class="navbar navbar-dark bg-primary">
+    <div class="container">
+        <a class="navbar-brand" href="treinamentos.html">⬅ Voltar</a>
+        <span class="text-white">Inmap Service</span>
+    </div>
+</nav>
+
+<div class="container py-4">
+
+    <h3 class="fw-bold mb-3">📡 Autenticação de ONT pelo Inmap</h3>
+
+    <div class="ratio ratio-16x9 mb-4 shadow">
+        <iframe 
+            src="https://drive.google.com/file/d/1x8W9zi_1woOn4Z0IonsFPR96K4HQEdfr/preview"
+            allow="autoplay"
+            allowfullscreen>
+        </iframe>
+    </div>
+
+    <div class="card shadow-sm">
+        <div class="card-body">
+
+            <h5 class="fw-bold">📝 Procedimento</h5>
+
+            <ol>
+                <li>Acesse o Inmap Service.</li>
+                <li>Localize a O.S e coloque em execução.</li>
+                <li>Acesse <strong>Integração ONU</strong>.</li>
+                <li>Clique em <strong>Consultar todas</strong>.</li>
+                <li>Localize o equipamento pelo MAC ou Serial.</li>
+                <li>Clique em <strong>Autorizar</strong>.</li>
+                <li>Verifique o perfil (54 ONT / 65 Bridge).</li>
+                <li>Salve e valide se ficou online.</li>
+            </ol>
+
+            <div class="alert alert-info">
+                ⚠️ Após autenticar, finalize a O.S normalmente.
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Fórum de dúvidas -->
+    <div class="card shadow-sm mt-4">
+        <div class="card-body">
+
+            <h5 class="fw-bold mb-3">💬 Dúvidas sobre o Inmap</h5>
+
+            <button class="btn btn-sm btn-dark mb-3" onclick="ativarAdmin()">
+                🔐 Modo Administrador
+            </button>
+
+            <textarea 
+                id="pergunta"
+                class="form-control mb-2"
+                rows="3"
+                placeholder="Digite sua dúvida..."></textarea>
+
+            <button class="btn btn-primary mb-3" onclick="enviarPergunta()">
+                Enviar dúvida
+            </button>
+
+            <div id="lista-perguntas"></div>
+
+        </div>
+    </div>
+
+</div>
+
+<script>
+const CODIGO_ADMIN = "159357";
+let admin = false;
+
+let dados = JSON.parse(localStorage.getItem("forum_inmap")) || [];
+
+function salvar() {
+    localStorage.setItem("forum_inmap", JSON.stringify(dados));
+}
+
+function ativarAdmin() {
+    const codigo = prompt("Digite o código de administrador:");
+    if (codigo === CODIGO_ADMIN) {
+        admin = true;
+        alert("Modo administrador ativado");
+        render();
+    } else {
+        alert("Código incorreto");
+    }
+}
+
+function enviarPergunta() {
+    const texto = document.getElementById("pergunta").value.trim();
+    if (!texto) return;
+
+    dados.push({ pergunta: texto, respostas: [] });
+    document.getElementById("pergunta").value = "";
+    salvar();
+    render();
+}
+
+function responder(index) {
+    const input = document.getElementById("resp_" + index);
+    const texto = input.value.trim();
+    if (!texto) return;
+
+    dados[index].respostas.push(texto);
+    input.value = "";
+    salvar();
+    render();
+}
+
+function apagarPergunta(index) {
+    if (!admin) return;
+    if (!confirm("Deseja apagar esta dúvida?")) return;
+
+    dados.splice(index, 1);
+    salvar();
+    render();
+}
+
+function render() {
+    const lista = document.getElementById("lista-perguntas");
+    lista.innerHTML = "";
+
+    dados.forEach((item, i) => {
+        let respostasHTML = "";
+        item.respostas.forEach(r => {
+            respostasHTML += `<div class="alert alert-success small mb-1">💬 ${r}</div>`;
+        });
+
+        lista.innerHTML += `
+            <div class="card mb-3">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between">
+                        <strong>❓ ${item.pergunta}</strong>
+                        ${admin ? `<button class="btn btn-sm btn-danger" onclick="apagarPergunta(${i})">🗑</button>` : ""}
+                    </div>
+
+                    <div class="mt-2">${respostasHTML}</div>
+
+                    <div class="input-group mt-2">
+                        <input type="text" id="resp_${i}" class="form-control" placeholder="Responder...">
+                        <button class="btn btn-outline-primary" onclick="responder(${i})">Responder</button>
+                    </div>
+                </div>
+            </div>
+        `;
+    });
+}
+
+render();
+</script>
+
+</body>
+</html>
