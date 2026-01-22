@@ -38,8 +38,17 @@
                 <i class="fas fa-folder-open text-primary"></i>
                 <h3 class="mb-0">Acesso Rápido</h3>
             </div>
+<button 
+    class="btn btn-primary w-100 mb-3"
+    id="btn-toggle-links">
+     Mostrar acessos rápidos
+</button>
 
-            <div id="container-links" class="mt-4">
+
+
+
+            <div id="container-links" class="mt-4 d-none">
+
 
                 <a href="https://formulario-rpc.netlify.app/vales"
                    target="_blank"
@@ -87,6 +96,51 @@
             </div>
         </div>
 
+<div class="ratio ratio-16x9 mb-4 shadow rounded">
+
+<div class="ratio ratio-16x9 mb-4 shadow rounded">
+    <iframe 
+        src="https://drive.google.com/file/d/1x8W9zi_1woOn4Z0IonsFPR96K4HQEdfr/preview"
+        allow="autoplay"
+        allowfullscreen>
+    </iframe>
+</div>
+
+
+
+</div>
+<div class="card mb-4 shadow-sm">
+    <div class="card-body">
+
+        <h5 class="fw-bold text-primary">
+            📡 Autenticação de ONT pelo Inmap Service
+        </h5>
+
+        <p class="small text-muted mb-3">
+            Este vídeo demonstra o procedimento correto para autenticar uma ONT
+            utilizando o sistema Inmap Service.
+        </p>
+
+        <h6 class="fw-bold">📝 Passo a passo</h6>
+
+        <ol class="small">
+            <li>Acesse o sistema <strong>Inmap Service</strong>.</li>
+            <li>Localize a O.S e coloque em execução</li>
+            <li>Va em <strong>integração ONU</strong></li>
+            <li>Pesquise na lupa <strong>Consultar Todas</strong>.</li>
+            <li>Veja qual equipamento pleo MAC/Serial e va em Autorizar</li>
+            <li>Configurações Gereais</li>
+            <li>Veja com atenção qual o perfil <strong>54 ONT, 65 BRIDGE</strong>.</li>
+            <li>Configurações ONU clientes e coloque os dados da interface </li>
+        </ol>
+
+        <div class="alert alert-info small mt-3 mb-0">
+            ⚠️ Apos autenticar <strong>continui com a finalização da O.S normalment</strong> 
+            
+        </div>
+
+    </div>
+</div>
         <!-- COLUNA DIREITA -->
         <div class="col-lg-4">
             <div class="section-header">
@@ -146,5 +200,21 @@
 </footer>
 
 <script type="module" src="controller.js"></script>
+
+<script>
+    const botao = document.getElementById("btn-toggle-links");
+    const links = document.getElementById("container-links");
+
+    botao.addEventListener("click", () => {
+        links.classList.toggle("d-none");
+
+        if (links.classList.contains("d-none")) {
+            botao.innerHTML = " Mostrar acessos rápidos";
+        } else {
+            botao.innerHTML = " Ocultar acessos rápidos";
+        }
+    });
+</script>
+
 </body>
 </html>
