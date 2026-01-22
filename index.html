@@ -12,6 +12,40 @@
 </head>
 
 <body>
+<div id="lock-screen" style="
+    position: fixed;
+    inset: 0;
+    background: linear-gradient(135deg, #0d6efd, #000);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+">
+
+    <div class="card p-4 shadow-lg" style="width: 320px;">
+        <h4 class="text-center mb-3">🔐 Portal RPC</h4>
+        <p class="text-center small text-muted">
+            Digite o código de autorização para acessar
+        </p>
+
+        <input 
+            type="password" 
+            id="access-code" 
+            class="form-control mb-3 text-center"
+            placeholder="Código de acesso">
+
+        <button class="btn btn-primary w-100" onclick="verificarCodigo()">
+            Entrar
+        </button>
+
+        <p id="erro-codigo" class="text-danger text-center mt-2 d-none">
+            Código inválido
+        </p>
+    </div>
+</div>
+
+
+
 
 <nav class="navbar navbar-dark shadow-sm">
     <div class="container">
@@ -215,6 +249,30 @@
         }
     });
 </script>
+
+<script>
+    const CODIGO_CORRETO = "139250";
+
+    function verificarCodigo() {
+        const digitado = document.getElementById("access-code").value;
+        const erro = document.getElementById("erro-codigo");
+
+        if (digitado === CODIGO_CORRETO) {
+            localStorage.setItem("portal_rpc_autorizado", "true");
+            document.getElementById("lock-screen").style.display = "none";
+        } else {
+            erro.classList.remove("d-none");
+        }
+    }
+
+    // Se já estiver autorizado, não pede senha de novo
+    if (localStorage.getItem("portal_rpc_autorizado") === "true") {
+        document.addEventListener("DOMContentLoaded", () => {
+            document.getElementById("lock-screen").style.display = "none";
+        });
+    }
+</script>
+
 
 </body>
 </html>
