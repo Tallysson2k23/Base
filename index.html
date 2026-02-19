@@ -229,22 +229,37 @@ body{
 </footer>
 
 <script>
-
-
 const CODIGO_CORRETO = "139250";
+
 function verificarCodigo(){
-const c = document.getElementById("access-code").value;
-if(c === CODIGO_CORRETO){
-localStorage.setItem("portal_rpc_autorizado","true");
-document.getElementById("lock-screen").style.display="none";
-}else{
-document.getElementById("erro-codigo").classList.remove("d-none");
+  const c = document.getElementById("access-code").value;
+
+  if(c === CODIGO_CORRETO){
+    localStorage.setItem("portal_rpc_autorizado","true");
+    document.getElementById("lock-screen").style.display="none";
+
+    // 🔊 Tocar música
+    const musica = document.getElementById("musica-fundo");
+    musica.volume = 0.3; // volume 30%
+    musica.play();
+
+  }else{
+    document.getElementById("erro-codigo").classList.remove("d-none");
+  }
 }
-}
+
 if(localStorage.getItem("portal_rpc_autorizado")==="true"){
-document.getElementById("lock-screen").style.display="none";
+  document.getElementById("lock-screen").style.display="none";
+
+  // 🔊 tocar automaticamente se já estiver autorizado
+  window.addEventListener("load", () => {
+    const musica = document.getElementById("musica-fundo");
+    musica.volume = 0.3;
+    musica.play();
+  });
 }
 </script>
+
 <!-- 🔥 ESTE É O ÚNICO BLOCO NOVO -->
 <script>
 document.querySelectorAll("a").forEach(link => {
@@ -252,5 +267,11 @@ document.querySelectorAll("a").forEach(link => {
     link.setAttribute("rel", "noopener noreferrer");
 });
 </script>
+
+<audio id="musica-fundo" loop>
+  <source src="musica.mp3" type="audio/mpeg">
+  Seu navegador não suporta áudio.
+</audio>
+
 </body>
 </html>
