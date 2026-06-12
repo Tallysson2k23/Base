@@ -1,0 +1,12 @@
+```json
+{
+  "brasil": "Brasil",
+  "adversario": "Argentina",
+  "data": "2026-06-20T21:45:00",
+  "placarBrasil": 0,
+  "placarAdversario": 0,
+  "aoVivo": false,
+  "minuto": 0,
+  "competicao": "Eliminatórias da Copa"
+}
+```

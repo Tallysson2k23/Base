@@ -95,6 +95,8 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 
+
+<!-- 
 <style>
 body{
   background:#f4f6f9;
@@ -205,6 +207,317 @@ body{
 }
 
 </style>
+
+-->
+
+<style>
+:root{
+  --verde:#009c3b;
+  --verde-escuro:#007a2f;
+  --amarelo:#ffdf00;
+  --azul:#002776;
+  --vermelho:#d62828;
+  --laranja:#ff7b00;
+  --branco:#ffffff;
+  --fundo:#fff8e8;
+  --texto:#1d1d1d;
+}
+
+body{
+  background:linear-gradient(180deg,#fff8e8 0%,#fff3d1 100%);
+  font-family:'Inter',sans-serif;
+  color:var(--texto);
+}
+
+/* HERO */
+.hero-section{
+  position:relative;
+  padding:110px 0 140px;
+  overflow:hidden;
+}
+
+/* Overlay temática Copa + São João */
+.hero-section::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(0,39,118,.92),
+      rgba(0,156,59,.88)
+    );
+}
+
+/* Bandeirinhas decorativas */
+.hero-section::before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  height:80px;
+  z-index:1;
+
+  background-image:
+  repeating-linear-gradient(
+    90deg,
+    transparent 0 18px,
+    #ffdf00 18px 36px,
+    transparent 36px 54px,
+    #d62828 54px 72px,
+    transparent 72px 90px,
+    #009c3b 90px 108px,
+    transparent 108px 126px,
+    #ff7b00 126px 144px
+  );
+
+  clip-path:polygon(
+    0 0,
+    100% 0,
+    100% 25%,
+    97% 100%,
+    94% 25%,
+    91% 100%,
+    88% 25%,
+    85% 100%,
+    82% 25%,
+    79% 100%,
+    76% 25%,
+    73% 100%,
+    70% 25%,
+    67% 100%,
+    64% 25%,
+    61% 100%,
+    58% 25%,
+    55% 100%,
+    52% 25%,
+    49% 100%,
+    46% 25%,
+    43% 100%,
+    40% 25%,
+    37% 100%,
+    34% 25%,
+    31% 100%,
+    28% 25%,
+    25% 100%,
+    22% 25%,
+    19% 100%,
+    16% 25%,
+    13% 100%,
+    10% 25%,
+    7% 100%,
+    4% 25%,
+    1% 100%,
+    0 25%
+  );
+}
+
+.hero-section .container{
+  position:relative;
+  z-index:2;
+  color:white;
+}
+
+.hero-section h1{
+  letter-spacing:3px;
+  font-weight:800;
+  text-transform:uppercase;
+  text-shadow:0 4px 18px rgba(0,0,0,.35);
+}
+
+.hero-section p{
+  opacity:.95;
+}
+
+.content-wrapper{
+  margin-top:-80px;
+  position:relative;
+  z-index:3;
+}
+
+/* CARDS */
+.portal-card{
+  background:white;
+  border-radius:18px;
+  padding:22px;
+  margin-bottom:25px;
+
+  border-top:5px solid var(--amarelo);
+
+  box-shadow:
+    0 10px 30px rgba(0,0,0,.08),
+    0 0 0 1px rgba(0,0,0,.03);
+
+  transition:.25s;
+}
+
+.portal-card:hover{
+  transform:translateY(-4px);
+  box-shadow:
+    0 16px 40px rgba(0,0,0,.12);
+}
+
+/* TÍTULOS */
+.section-header{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-weight:700;
+  color:var(--verde);
+  margin-bottom:18px;
+  font-size:1.05rem;
+}
+
+.section-header i{
+  color:var(--laranja);
+}
+
+/* BOTÕES */
+.portal-btn{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:14px 16px;
+  border-radius:12px;
+  font-weight:600;
+  text-decoration:none;
+  transition:.25s;
+}
+
+.portal-btn:hover{
+  transform:translateY(-2px);
+}
+
+/* DOWNLOAD */
+.download-btn{
+  border:2px solid rgba(0,156,59,.15);
+  background:#fffef8;
+  color:var(--texto);
+}
+
+.download-btn:hover{
+  background:#fff4bf;
+  border-color:var(--amarelo);
+}
+
+/* ALERTA */
+.alert{
+  border-radius:14px;
+  border:none;
+}
+
+/* Alerta personalizado */
+.alert-warning{
+  background:#fff4bf;
+  color:#6c5600;
+}
+
+.alert-success{
+  background:#d7f8e4;
+  color:#045f2d;
+}
+
+/* Botão verde principal */
+.btn-verde{
+  background:linear-gradient(
+    135deg,
+    var(--verde),
+    var(--verde-escuro)
+  );
+  border:none;
+  color:white;
+  font-weight:700;
+  box-shadow:0 6px 18px rgba(0,156,59,.25);
+}
+
+.btn-verde:hover{
+  background:linear-gradient(
+    135deg,
+    var(--verde-escuro),
+    var(--verde)
+  );
+  color:white;
+  transform:translateY(-2px);
+}
+
+/* Botão Copa */
+.btn-preto{
+  background:linear-gradient(
+    135deg,
+    var(--azul),
+    #001b52
+  );
+  border:none;
+  color:white;
+  font-weight:700;
+  box-shadow:0 6px 18px rgba(0,39,118,.25);
+}
+
+.btn-preto:hover{
+  background:linear-gradient(
+    135deg,
+    #001b52,
+    var(--azul)
+  );
+  color:white;
+  transform:translateY(-2px);
+}
+
+/* Destaques */
+.badge-junino{
+  background:var(--laranja);
+  color:white;
+}
+
+.badge-copa{
+  background:var(--verde);
+  color:white;
+}
+
+/* Scrollbar temática */
+::-webkit-scrollbar{
+  width:10px;
+}
+
+::-webkit-scrollbar-track{
+  background:#fff3d1;
+}
+
+::-webkit-scrollbar-thumb{
+  background:linear-gradient(
+    180deg,
+    var(--verde),
+    var(--amarelo)
+  );
+  border-radius:20px;
+}
+
+/* Responsivo */
+@media(max-width:768px){
+
+
+
+  .hero-section{
+    padding:90px 0 120px;
+  }
+
+  .hero-section h1{
+    font-size:2rem;
+    letter-spacing:2px;
+  }
+
+  .content-wrapper{
+    margin-top:-60px;
+  }
+
+  .portal-card{
+    padding:18px;
+  }
+}
+</style>
+
+
 </head>
 
 <body>
@@ -227,6 +540,285 @@ body{
 </div>
 </nav>
 
+<!-- PLACAR BRASIL AO VIVO -->
+<div id="brasil-live-banner">
+
+<div class="match-left">
+
+  <img
+    id="bandeira-brasil"
+    src="https://flagcdn.com/w40/br.png"
+    alt="Brasil"
+    class="flag-team">
+
+  <span id="time-brasil">Brasil</span>
+
+</div>
+
+  <div class="match-center">
+
+    <div id="contador-jogo">
+      13/06 as 19h
+    </div>
+
+    <div id="placar-jogo">
+      x
+    </div>
+
+    <div id="status-jogo">
+      Aguardando informações
+    </div>
+
+  </div>
+
+<div class="match-right">
+
+  <img
+    id="bandeira-adversario"
+    src="https://flagcdn.com/w40/ma.png"
+    alt="Adversário"
+    class="flag-team">
+
+  <span id="time-adversario">Marrocos</span>
+
+</div>
+
+</div>
+
+<style>
+#brasil-live-banner{
+  position:sticky;
+  top:0;
+  z-index:999;
+
+  background:linear-gradient(
+    135deg,
+    #68b084,
+    #007a2f
+  );
+
+  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+
+  gap:20px;
+
+  padding:12px 25px;
+
+  border-bottom:4px solid #ffdf00;
+
+  box-shadow:0 5px 15px rgba(0,0,0,.15);
+}
+
+.match-left,
+.match-right{
+  font-weight:700;
+  font-size:1rem;
+  min-width:120px;
+}
+
+.match-center{
+  text-align:center;
+  flex:1;
+}
+
+#placar-jogo{
+  font-size:1.8rem;
+  font-weight:800;
+  line-height:1;
+}
+
+#contador-jogo{
+  font-size:.9rem;
+  color:#ffdf00;
+  font-weight:700;
+}
+
+#status-jogo{
+  font-size:.85rem;
+  opacity:.95;
+}
+
+@media(max-width:768px){
+
+  #brasil-live-banner{
+    padding:10px 12px;
+  }
+
+  .match-center{
+    padding:0;
+  }
+
+  .flag-team{
+    width:24px;
+    height:16px;
+    margin:0;
+  }
+
+  #time-brasil,
+  #time-adversario{
+    font-size:.95rem;
+    font-weight:700;
+  }
+
+  #placar-jogo{
+    font-size:1.5rem;
+    line-height:1;
+    margin:4px 0;
+  }
+
+  #contador-jogo{
+    font-size:.85rem;
+  }
+
+  #status-jogo{
+    font-size:.8rem;
+  }
+
+  .match-left,
+  .match-right{
+    justify-content:center;
+    gap:6px;
+  }
+
+}
+</style>
+
+<script>
+
+/*
+====================================================
+CONFIGURAÇÃO
+====================================================
+Cadastre sua chave da API Football
+https://www.api-football.com
+====================================================
+*/
+
+
+<script>
+
+let contadorInterval;
+
+async function atualizarJogoBrasil(){
+
+  try{
+
+    const response = await fetch(
+      '/jogo-brasil.json?t=' + Date.now()
+    );
+
+    const jogo = await response.json();
+
+    document.getElementById("time-brasil")
+      .innerText = jogo.brasil || "Brasil";
+
+    document.getElementById("time-adversario")
+      .innerText = jogo.adversario;
+
+    document.getElementById("placar-jogo")
+      .innerHTML =
+      `${jogo.placarBrasil} x ${jogo.placarAdversario}`;
+
+    document.getElementById("status-jogo")
+      .innerHTML =
+      jogo.competicao || "";
+
+    if(jogo.aoVivo){
+
+      document.getElementById("contador-jogo")
+        .innerHTML =
+        `🔴 AO VIVO • ${jogo.minuto}'`;
+
+      return;
+    }
+
+    iniciarContagem(jogo.data);
+
+  }
+  catch(error){
+
+    document.getElementById("status-jogo")
+      .innerHTML =
+      "Erro ao carregar jogo";
+
+  }
+
+}
+
+function iniciarContagem(dataJogo){
+
+  if(contadorInterval){
+    clearInterval(contadorInterval);
+  }
+
+  function atualizar(){
+
+    const agora = new Date();
+
+    const inicio =
+      new Date(dataJogo);
+
+    const diff =
+      inicio - agora;
+
+    if(diff <= 0){
+
+      document.getElementById("contador-jogo")
+        .innerHTML =
+        "🔴 Jogo iniciado";
+
+      return;
+    }
+
+    const dias =
+      Math.floor(diff / 86400000);
+
+    const horas =
+      Math.floor(
+        (diff % 86400000) / 3600000
+      );
+
+    const minutos =
+      Math.floor(
+        (diff % 3600000) / 60000
+      );
+
+    if(dias > 0){
+
+      document.getElementById("contador-jogo")
+        .innerHTML =
+        `⏳ ${dias}d ${horas}h ${minutos}min`;
+
+    }else{
+
+      document.getElementById("contador-jogo")
+        .innerHTML =
+        `⏳ ${horas}h ${minutos}min`;
+
+    }
+
+  }
+
+  atualizar();
+
+  contadorInterval =
+    setInterval(atualizar,1000);
+
+}
+
+atualizarJogoBrasil();
+
+setInterval(
+  atualizarJogoBrasil,
+  30000
+);
+
+</script>
+
+
+
  
 <section class="hero-section text-center">
 <div class="container">
@@ -236,6 +828,8 @@ body{
 </section>
 
 <div class="container content-wrapper">
+  
+
 <div class="row">
 
 
@@ -245,7 +839,7 @@ body{
 <div class="section-header"><i class="fas fa-bolt"></i> Acesso rápido</div>
 
 <a href="treinamentos.html" class="btn btn-success w-100 mb-2 portal-btn">📚 Treinamentos e Processos</a>
-<a href="https://rpc-carros.netlify.app/" target="_blank" class="btn btn-dark w-100 mb-2 portal-btn">🚔 Solicitação de Veículos (beta)</a>
+<a href="https://rpc-carros.netlify.app/" target="_blank" class="btn btn-dark w-100 mb-2 portal-btn">🚔 Solicitação de Veículos</a>
 <a href="https://setor-tecnico-x29y.vercel.app/" target="_blank" class="btn btn-success w-100 portal-btn">💻 Acesso das ONTs</a>
 
 
@@ -336,6 +930,43 @@ document.querySelectorAll("a").forEach(link => {
     link.setAttribute("target", "_blank");
     link.setAttribute("rel", "noopener noreferrer");
 });
+</script>
+<script>
+async function atualizarPlacar() {
+
+  try {
+
+    // Exemplo usando API-Football
+    const response = await fetch(
+      "SUA_API_AQUI"
+    );
+
+    const data = await response.json();
+
+    const jogo = data.response[0];
+
+    const brasil = jogo.teams.home.name;
+    const adversario = jogo.teams.away.name;
+
+    const golsBrasil = jogo.goals.home;
+    const golsAdv = jogo.goals.away;
+
+    const minuto = jogo.fixture.status.elapsed;
+
+    document.getElementById("status-jogo").innerHTML =
+      `🇧🇷 ${brasil} ${golsBrasil} x ${golsAdv} ${adversario} ⏱️ ${minuto}'`;
+
+  } catch(e) {
+
+    document.getElementById("status-jogo").innerHTML =
+      "Nenhum jogo em andamento";
+
+  }
+
+}
+
+atualizarPlacar();
+setInterval(atualizarPlacar,30000);
 </script>
 
 <!--
