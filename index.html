@@ -211,314 +211,581 @@ body{
 </style>
 
 -->
-
 <style>
-:root{
-  --verde:#009c3b;
-  --verde-escuro:#007a2f;
-  --amarelo:#ffdf00;
-  --azul:#002776;
-  --vermelho:#d62828;
-  --laranja:#ff7b00;
-  --branco:#ffffff;
-  --fundo:#fff8e8;
-  --texto:#1d1d1d;
+  :root{
+
+--bg:#060b14;
+--bg2:#0b1220;
+--bg3:#111b2d;
+
+--card:rgba(20,32,55,.78);
+
+--primary:#00d4ff;
+--primary2:#009dff;
+
+--success:#00ff9d;
+
+--text:#ffffff;
+--text2:#9eb7d8;
+
+--border:rgba(255,255,255,.08);
+
+--shadow:0 15px 45px rgba(0,0,0,.35);
+
 }
+
+/* ========================================= */
 
 body{
-  background:linear-gradient(180deg,#fff8e8 0%,#fff3d1 100%);
-  font-family:'Inter',sans-serif;
-  color:var(--texto);
+
+background:
+radial-gradient(circle at top,#163f77 0%,#08111f 45%,#05090f 100%);
+
+font-family:'Inter',sans-serif;
+
+color:var(--text);
+
+overflow-x:hidden;
+
 }
 
-/* HERO */
+/* ========================================= */
+
 .hero-section{
-  position:relative;
-  padding:110px 0 140px;
-  overflow:hidden;
+
+position:relative;
+
+padding:120px 0 170px;
+
+overflow:hidden;
+
 }
 
-/* Overlay temática Copa + São João */
-.hero-section::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:
-    linear-gradient(
-      135deg,
-      rgba(0,39,118,.92),
-      rgba(0,156,59,.88)
-    );
-}
+/* Fundo tecnológico */
 
-/* Bandeirinhas decorativas */
 .hero-section::before{
-  content:"";
-  position:absolute;
-  top:0;
-  left:0;
-  right:0;
-  height:80px;
-  z-index:1;
 
-  background-image:
-  repeating-linear-gradient(
-    90deg,
-    transparent 0 18px,
-    #ffdf00 18px 36px,
-    transparent 36px 54px,
-    #d62828 54px 72px,
-    transparent 72px 90px,
-    #009c3b 90px 108px,
-    transparent 108px 126px,
-    #ff7b00 126px 144px
-  );
+content:"";
 
-  clip-path:polygon(
-    0 0,
-    100% 0,
-    100% 25%,
-    97% 100%,
-    94% 25%,
-    91% 100%,
-    88% 25%,
-    85% 100%,
-    82% 25%,
-    79% 100%,
-    76% 25%,
-    73% 100%,
-    70% 25%,
-    67% 100%,
-    64% 25%,
-    61% 100%,
-    58% 25%,
-    55% 100%,
-    52% 25%,
-    49% 100%,
-    46% 25%,
-    43% 100%,
-    40% 25%,
-    37% 100%,
-    34% 25%,
-    31% 100%,
-    28% 25%,
-    25% 100%,
-    22% 25%,
-    19% 100%,
-    16% 25%,
-    13% 100%,
-    10% 25%,
-    7% 100%,
-    4% 25%,
-    1% 100%,
-    0 25%
-  );
+position:absolute;
+
+inset:0;
+
+background:
+
+linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px),
+
+linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px);
+
+background-size:40px 40px;
+
+opacity:.3;
+
+animation:gridMove 25s linear infinite;
+
 }
+
+.hero-section::after{
+
+content:"";
+
+position:absolute;
+
+inset:0;
+
+background:
+
+radial-gradient(circle at 20% 20%,rgba(0,212,255,.25),transparent 30%),
+
+radial-gradient(circle at 80% 0%,rgba(0,255,157,.12),transparent 30%),
+
+linear-gradient(180deg,#07111d,#05080d);
+
+}
+
+@keyframes gridMove{
+
+0%{
+
+transform:translateY(0);
+
+}
+
+100%{
+
+transform:translateY(40px);
+
+}
+
+}
+
+/* ========================================= */
 
 .hero-section .container{
-  position:relative;
-  z-index:2;
-  color:white;
+
+position:relative;
+
+z-index:5;
+
 }
 
 .hero-section h1{
-  letter-spacing:3px;
-  font-weight:800;
-  text-transform:uppercase;
-  text-shadow:0 4px 18px rgba(0,0,0,.35);
+
+font-weight:900;
+
+font-size:3rem;
+
+letter-spacing:4px;
+
+text-transform:uppercase;
+
+color:#fff;
+
+text-shadow:
+
+0 0 15px rgba(0,212,255,.6),
+
+0 0 30px rgba(0,212,255,.25);
+
 }
 
 .hero-section p{
-  opacity:.95;
+
+color:var(--text2);
+
+font-size:1.1rem;
+
 }
+
+/* ========================================= */
 
 .content-wrapper{
-  margin-top:-80px;
-  position:relative;
-  z-index:3;
+
+margin-top:-90px;
+
+position:relative;
+
+z-index:20;
+
 }
 
-/* CARDS */
+/* ========================================= */
+
 .portal-card{
-  background:white;
-  border-radius:18px;
-  padding:22px;
-  margin-bottom:25px;
 
-  border-top:5px solid var(--amarelo);
+background:var(--card);
 
-  box-shadow:
-    0 10px 30px rgba(0,0,0,.08),
-    0 0 0 1px rgba(0,0,0,.03);
+backdrop-filter:blur(18px);
 
-  transition:.25s;
+-webkit-backdrop-filter:blur(18px);
+
+border:1px solid var(--border);
+
+border-radius:22px;
+
+padding:25px;
+
+margin-bottom:28px;
+
+box-shadow:var(--shadow);
+
+transition:.35s;
+
+position:relative;
+
+overflow:hidden;
+
+}
+
+.portal-card::before{
+
+content:"";
+
+position:absolute;
+
+left:0;
+
+top:0;
+
+width:100%;
+
+height:3px;
+
+background:linear-gradient(90deg,#00d4ff,#00ff9d,#009dff);
+
 }
 
 .portal-card:hover{
-  transform:translateY(-4px);
-  box-shadow:
-    0 16px 40px rgba(0,0,0,.12);
+
+transform:translateY(-8px);
+
+border-color:rgba(0,212,255,.45);
+
+box-shadow:
+
+0 25px 60px rgba(0,0,0,.45),
+
+0 0 30px rgba(0,212,255,.18);
+
 }
 
-/* TÍTULOS */
+/* ========================================= */
+
 .section-header{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  font-weight:700;
-  color:var(--verde);
-  margin-bottom:18px;
-  font-size:1.05rem;
+
+display:flex;
+
+align-items:center;
+
+gap:12px;
+
+font-weight:700;
+
+font-size:1.08rem;
+
+color:#fff;
+
+margin-bottom:20px;
+
 }
 
 .section-header i{
-  color:var(--laranja);
+
+color:var(--primary);
+
+font-size:1.2rem;
+
 }
 
-/* BOTÕES */
+/* ========================================= */
+
 .portal-btn{
-  display:flex;
-  align-items:center;
-  gap:12px;
-  padding:14px 16px;
-  border-radius:12px;
-  font-weight:600;
-  text-decoration:none;
-  transition:.25s;
+
+display:flex;
+
+align-items:center;
+
+gap:15px;
+
+padding:15px 18px;
+
+margin-bottom:12px;
+
+border-radius:14px;
+
+text-decoration:none;
+
+font-weight:600;
+
+background:rgba(255,255,255,.03);
+
+border:1px solid rgba(255,255,255,.05);
+
+color:#fff;
+
+transition:.3s;
+
 }
 
 .portal-btn:hover{
-  transform:translateY(-2px);
+
+transform:translateX(8px);
+
+background:rgba(0,212,255,.08);
+
+border-color:rgba(0,212,255,.35);
+
+color:#fff;
+
+box-shadow:
+
+0 0 25px rgba(0,212,255,.18);
+
 }
 
-/* DOWNLOAD */
+.portal-btn i{
+
+font-size:1.2rem;
+
+color:var(--primary);
+
+}
+
+/* ========================================= */
+/* BOTÕES MAIS IMPORTANTES */
+
+.portal-btn.destaque{
+
+background:
+
+linear-gradient(
+
+135deg,
+
+rgba(0,212,255,.18),
+
+rgba(0,255,157,.12)
+
+);
+
+border:1px solid rgba(0,212,255,.55);
+
+box-shadow:
+
+0 0 18px rgba(0,212,255,.28);
+
+position:relative;
+
+overflow:hidden;
+
+}
+
+.portal-btn.destaque::before{
+
+content:"MAIS USADO";
+
+position:absolute;
+
+top:8px;
+
+right:-32px;
+
+transform:rotate(35deg);
+
+background:#00d4ff;
+
+color:#001321;
+
+font-size:10px;
+
+font-weight:800;
+
+padding:3px 35px;
+
+letter-spacing:1px;
+
+}
+
+.portal-btn.destaque:hover{
+
+transform:translateY(-3px) scale(1.02);
+
+box-shadow:
+
+0 0 35px rgba(0,212,255,.45);
+
+}
+
+/* ========================================= */
+
 .download-btn{
-  border:2px solid rgba(0,156,59,.15);
-  background:#fffef8;
-  color:var(--texto);
+
+background:rgba(255,255,255,.04);
+
+border:1px solid rgba(255,255,255,.06);
+
+color:white;
+
 }
 
 .download-btn:hover{
-  background:#fff4bf;
-  border-color:var(--amarelo);
+
+background:rgba(0,212,255,.08);
+
 }
 
-/* ALERTA */
+/* ========================================= */
+
 .alert{
-  border-radius:14px;
-  border:none;
+
+background:#111d31;
+
+border:1px solid rgba(0,212,255,.2);
+
+color:white;
+
+border-radius:16px;
+
 }
 
-/* Alerta personalizado */
 .alert-warning{
-  background:#fff4bf;
-  color:#6c5600;
+
+background:#302400;
+
+color:#ffd85b;
+
 }
 
 .alert-success{
-  background:#d7f8e4;
-  color:#045f2d;
+
+background:#003723;
+
+color:#6fffc0;
+
 }
 
-/* Botão verde principal */
+/* ========================================= */
+
 .btn-verde{
-  background:linear-gradient(
-    135deg,
-    var(--verde),
-    var(--verde-escuro)
-  );
-  border:none;
-  color:white;
-  font-weight:700;
-  box-shadow:0 6px 18px rgba(0,156,59,.25);
+
+background:
+
+linear-gradient(
+
+135deg,
+
+#00d4ff,
+
+#0077ff
+
+);
+
+border:none;
+
+color:white;
+
+font-weight:700;
+
+box-shadow:
+
+0 0 25px rgba(0,212,255,.25);
+
 }
 
 .btn-verde:hover{
-  background:linear-gradient(
-    135deg,
-    var(--verde-escuro),
-    var(--verde)
-  );
-  color:white;
-  transform:translateY(-2px);
+
+transform:translateY(-3px);
+
+color:white;
+
+box-shadow:
+
+0 0 35px rgba(0,212,255,.45);
+
 }
 
-/* Botão Copa */
+/* ========================================= */
+
 .btn-preto{
-  background:linear-gradient(
-    135deg,
-    var(--azul),
-    #001b52
-  );
-  border:none;
-  color:white;
-  font-weight:700;
-  box-shadow:0 6px 18px rgba(0,39,118,.25);
+
+background:
+
+linear-gradient(
+
+135deg,
+
+#202a44,
+
+#0d1322
+
+);
+
+border:1px solid rgba(255,255,255,.08);
+
+color:white;
+
 }
 
 .btn-preto:hover{
-  background:linear-gradient(
-    135deg,
-    #001b52,
-    var(--azul)
-  );
-  color:white;
-  transform:translateY(-2px);
+
+background:
+
+linear-gradient(
+
+135deg,
+
+#25385d,
+
+#101a2e
+
+);
+
+color:white;
+
 }
 
-/* Destaques */
-.badge-junino{
-  background:var(--laranja);
-  color:white;
-}
+/* ========================================= */
+
+.badge-junino,
 
 .badge-copa{
-  background:var(--verde);
-  color:white;
+
+background:#00d4ff;
+
+color:#001321;
+
+font-weight:700;
+
 }
 
-/* Scrollbar temática */
+/* ========================================= */
+
 ::-webkit-scrollbar{
-  width:10px;
+
+width:10px;
+
 }
 
 ::-webkit-scrollbar-track{
-  background:#fff3d1;
+
+background:#050b13;
+
 }
 
 ::-webkit-scrollbar-thumb{
-  background:linear-gradient(
-    180deg,
-    var(--verde),
-    var(--amarelo)
-  );
-  border-radius:20px;
+
+background:linear-gradient(
+
+180deg,
+
+#00d4ff,
+
+#006eff
+
+);
+
+border-radius:20px;
+
 }
 
-/* Responsivo */
+/* ========================================= */
+
 @media(max-width:768px){
 
+.hero-section{
 
+padding:90px 0 120px;
 
-  .hero-section{
-    padding:90px 0 120px;
-  }
-
-  .hero-section h1{
-    font-size:2rem;
-    letter-spacing:2px;
-  }
-
-  .content-wrapper{
-    margin-top:-60px;
-  }
-
-  .portal-card{
-    padding:18px;
-  }
 }
-</style>
 
+.hero-section h1{
+
+font-size:2rem;
+
+letter-spacing:2px;
+
+}
+
+.content-wrapper{
+
+margin-top:-60px;
+
+}
+
+.portal-card{
+
+padding:18px;
+
+}
+
+.portal-btn{
+
+padding:14px;
+
+}
+
+}
+  </style>
 
 </head>
 
@@ -686,14 +953,19 @@ setInterval(
 <div class="section-header"><i class="fas fa-bolt"></i> Acesso rápido</div>
 
 <a href="treinamentos.html" class="btn btn-success w-100 mb-2 portal-btn">📚 Treinamentos e Processos</a>
-<a href="https://rpc-carros.netlify.app/" target="_blank" class="btn btn-dark w-100 mb-2 portal-btn">🚔 Solicitação de Veículos</a>
-<a href="https://setor-tecnico-x29y.vercel.app/" target="_blank" class="btn btn-success w-100 portal-btn">💻 Acesso das ONTs</a>
-
+<a href="https://rpc-carros.netlify.app/" target="_blank" class="btn btn-dark w-100 mb-2 portal-btn btn-destaque">
+🚔 Solicitação de Veículos
+</a>
+<a href="https://setor-tecnico-x29y.vercel.app/" target="_blank" class="btn btn-success w-100 mb-2 portal-btn btn-destaque">
+💻 Acesso das ONTs
+</a>
 
 
 <div id="links-extras" class="mt-3">
 
-<a href="https://estoque-rpc.vercel.app/login.html" target="_blank" class="btn btn-dark w-100 mb-2 portal-btn">🛠️ Ferramentas Estoque</a>
+<a href="https://estoque-rpc.vercel.app/login.html" target="_blank" class="btn btn-dark w-100 mb-2 portal-btn btn-destaque">
+🛠️ Ferramentas Estoque
+</a>
 <a href="https://docs.google.com/forms/d/e/1FAIpQLSe7VI4oDLYVE9oXHMb-GXRVq4YtZsQj4OrV8oKev8jPFNv2UQ/viewform" target="_blank" class="btn btn-outline-success w-100 mb-2 portal-btn">🛒Solicitar Materiais</a>
 <a href="https://docs.google.com/forms/d/e/1FAIpQLScGVnH1gPTu63ZkWGW6qi4vrrVxL3gegLkFFscb9Ld4Ajvezw/viewform" target="_blank" class="btn btn-outline-success w-100 mb-2 portal-btn">🍽Solicitar Almoço</a>
 
